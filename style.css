@@ -1,7 +1,6 @@
-/* =====================================================
-   Wedding Invitation
-   Ислам & Гулбону
-===================================================== */
+/* ================================= */
+/* RESET */
+/* ================================= */
 
 *{
 margin:0;
@@ -10,7 +9,9 @@ box-sizing:border-box;
 }
 
 html{
+
 scroll-behavior:smooth;
+
 }
 
 body{
@@ -19,7 +20,7 @@ font-family:'Cormorant Garamond',serif;
 
 background:#faf8f5;
 
-color:#444;
+color:#4b4139;
 
 overflow-x:hidden;
 
@@ -27,107 +28,67 @@ line-height:1.7;
 
 }
 
-/* =======================
-Фон
-======================= */
+/* ================================= */
+/* Лепестки */
+/* ================================= */
 
-body::before{
-
-content:"";
+#petals{
 
 position:fixed;
 
 left:0;
+
 top:0;
 
 width:100%;
+
 height:100%;
 
-background:
+pointer-events:none;
 
-radial-gradient(circle at top,#ffffff 0%,#faf8f5 65%,#f3ece2 100%);
+z-index:1;
 
-z-index:-5;
-
-}
-
-/* =======================
-Шрифты
-======================= */
-
-h1{
-
-font-family:'Great Vibes',cursive;
-
-font-size:95px;
-
-font-weight:400;
-
-color:#b79035;
-
-line-height:1.1;
+overflow:hidden;
 
 }
 
-h1 span{
-
-color:#d9b76b;
-
-}
-
-h2{
-
-font-size:48px;
-
-font-weight:500;
-
-color:#b79035;
-
-margin-bottom:35px;
-
-text-align:center;
-
-}
-
-h3{
-
-font-size:28px;
-
-font-weight:500;
-
-}
-
-p{
-
-font-size:23px;
-
-}
-
-/* =======================
-WELCOME
-======================= */
+/* ================================= */
+/* Welcome */
+/* ================================= */
 
 #welcome{
 
 position:fixed;
 
 left:0;
+
 top:0;
 
 width:100%;
-height:100%;
 
-background:linear-gradient(180deg,#fffdf9,#f8f2e8);
+height:100%;
 
 display:flex;
 
+align-items:center;
+
 justify-content:center;
 
-align-items:center;
+background:
+
+linear-gradient(rgba(255,255,255,.90),
+
+rgba(255,255,255,.90)),
+
+url("assets/bg.jpg");
+
+background-size:cover;
+
+background-position:center;
 
 z-index:99999;
 
-transition:1.2s;
+transition:1s;
 
 }
 
@@ -139,170 +100,298 @@ visibility:hidden;
 
 }
 
-.welcome-box{
+.welcome-card{
+
+width:92%;
+
+max-width:430px;
+
+padding:55px 35px;
+
+background:white;
+
+border-radius:30px;
 
 text-align:center;
 
-animation:fadeUp 1.8s;
+box-shadow:0 20px 60px rgba(0,0,0,.12);
 
-padding:40px;
+animation:fadeUp 1s;
+
+position:relative;
 
 }
 
-.subtitle{
+.welcome-rings{
 
-letter-spacing:5px;
+width:95px;
 
-font-size:24px;
+margin-bottom:25px;
 
-color:#999;
+animation:rings 3s infinite;
+
+}
+
+.welcome-subtitle{
+
+font-size:22px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#b89a5d;
+
+margin-bottom:20px;
+
+}
+
+.welcome-title{
+
+font-family:'Great Vibes',cursive;
+
+font-size:72px;
+
+font-weight:400;
+
+line-height:1.15;
+
+background:linear-gradient(90deg,
+
+#b68a2e,
+
+#f3df97,
+
+#b68a2e);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:gold 6s linear infinite;
+
+}
+
+.welcome-title span{
+
+display:block;
+
+font-size:55px;
+
+margin:15px 0;
 
 }
 
 .welcome-date{
 
-margin-top:15px;
+font-size:28px;
 
-margin-bottom:45px;
-
-font-size:32px;
+margin:25px 0 35px;
 
 }
 
-#openInvitation{
+#welcome button{
 
-padding:18px 55px;
+padding:18px 45px;
 
 border:none;
 
 border-radius:60px;
 
-background:linear-gradient(90deg,#d7b45f,#b79035);
+background:linear-gradient(45deg,
+
+#b68a2e,
+
+#e7ca7f);
 
 color:white;
 
-font-size:22px;
+font-size:18px;
 
 cursor:pointer;
 
 transition:.35s;
 
-box-shadow:0 15px 35px rgba(183,144,53,.35);
-
 }
 
-#openInvitation:hover{
+#welcome button:hover{
 
 transform:translateY(-4px);
 
+box-shadow:0 15px 30px rgba(182,138,46,.4);
+
 }
 
-/* =======================
-Главный экран
-======================= */
+/* ================================= */
+/* Hero */
+/* ================================= */
 
 .hero{
 
-height:100vh;
-
 position:relative;
+
+min-height:100vh;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 text-align:center;
 
-overflow:hidden;
+padding:120px 20px;
 
-background:url("assets/bg.jpg") center center/cover no-repeat;
+background:white;
+
+overflow:hidden;
 
 }
 
-.overlay{
+.hero-overlay{
 
 position:absolute;
 
-inset:0;
+left:0;
 
-background:rgba(255,255,255,.45);
+top:0;
 
-backdrop-filter:blur(2px);
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(rgba(255,255,255,.92),
+
+rgba(255,255,255,.95));
+
+z-index:1;
 
 }
 
-.content{
+.hero-content{
 
 position:relative;
 
 z-index:5;
 
-width:90%;
-
-max-width:850px;
-
-animation:fadeUp 2s;
+max-width:760px;
 
 }
 
-.date{
+.hero-subtitle{
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+font-size:22px;
+
+color:#c49d49;
+
+margin-bottom:30px;
+
+}
+
+.hero-title{
+
+font-family:'Great Vibes',cursive;
+
+font-size:110px;
+
+line-height:1.1;
+
+font-weight:400;
+
+background:linear-gradient(90deg,
+
+#b68a2e,
+
+#f3df97,
+
+#b68a2e);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:gold 6s linear infinite;
+
+}
+
+.hero-title span{
+
+display:block;
+
+font-size:70px;
+
+margin:20px 0;
+
+}
+
+.hero-date{
 
 font-size:34px;
 
-margin:20px 0 35px;
+margin:35px 0;
+
+color:#6a5b4d;
 
 }
 
-.invite{
+.hero-text{
 
-font-size:25px;
+font-size:28px;
 
 max-width:700px;
 
 margin:auto;
 
+line-height:1.8;
+
 }
 
-/* =======================
-Кнопки
-======================= */
-
-.button{
+.gold-button{
 
 display:inline-block;
 
-margin-top:40px;
+margin-top:45px;
 
-padding:18px 60px;
+padding:18px 50px;
 
-background:linear-gradient(90deg,#d6b25c,#b79035);
+background:linear-gradient(45deg,
+
+#b68a2e,
+
+#edd28a);
+
+border-radius:60px;
 
 color:white;
 
 text-decoration:none;
 
-border-radius:60px;
-
 font-size:20px;
 
-transition:.4s;
-
-box-shadow:0 18px 40px rgba(183,144,53,.3);
+transition:.35s;
 
 }
 
-.button:hover{
+.gold-button:hover{
 
 transform:translateY(-5px);
 
-box-shadow:0 25px 45px rgba(183,144,53,.45);
+box-shadow:0 15px 30px rgba(182,138,46,.35);
 
 }
-/* =======================
-Цветы
-======================= */
+/* ================================= */
+/* Flowers */
+/* ================================= */
 
 .flowers-top{
 
@@ -312,13 +401,11 @@ top:0;
 
 left:0;
 
-width:420px;
+width:100%;
+
+z-index:2;
 
 pointer-events:none;
-
-user-select:none;
-
-animation:floatFlower 8s ease-in-out infinite;
 
 }
 
@@ -326,79 +413,265 @@ animation:floatFlower 8s ease-in-out infinite;
 
 position:absolute;
 
-right:0;
-
 bottom:0;
 
-width:450px;
+left:0;
+
+width:100%;
+
+z-index:2;
 
 pointer-events:none;
 
-user-select:none;
-
-animation:floatFlower2 9s ease-in-out infinite;
+transform:rotate(180deg);
 
 }
 
-.rings{
+.hero-ring{
 
-position:absolute;
+margin-bottom:30px;
 
-right:90px;
-
-top:70px;
-
-width:150px;
-
-animation:rings 5s ease-in-out infinite;
+animation:ringsFloat 4s ease-in-out infinite;
 
 }
 
-@keyframes rings{
+.hero-ring img{
+
+width:120px;
+
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.15));
+
+}
+
+/* ================================= */
+/* Timer */
+/* ================================= */
+
+.timer-section{
+
+padding:120px 20px;
+
+background:#fff;
+
+text-align:center;
+
+}
+
+.section-title h2{
+
+font-size:54px;
+
+font-weight:600;
+
+margin-bottom:20px;
+
+color:#6d5635;
+
+}
+
+.title-heart{
+
+width:55px;
+
+animation:heartBeat 1.8s infinite;
+
+}
+
+.countdown{
+
+margin-top:60px;
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+.time-box{
+
+width:160px;
+
+padding:35px 20px;
+
+background:white;
+
+border-radius:25px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.time-box:hover{
+
+transform:translateY(-10px);
+
+}
+
+.time-box span{
+
+font-size:64px;
+
+font-weight:700;
+
+color:#b68a2e;
+
+display:block;
+
+}
+
+.time-box p{
+
+margin-top:10px;
+
+font-size:22px;
+
+}
+
+/* ================================= */
+/* Calendar */
+/* ================================= */
+
+.calendar{
+
+padding:120px 20px;
+
+text-align:center;
+
+background:#faf8f5;
+
+}
+
+.calendar h2{
+
+font-size:54px;
+
+margin-bottom:45px;
+
+color:#6d5635;
+
+}
+
+.calendar-card{
+
+max-width:850px;
+
+margin:auto;
+
+background:white;
+
+padding:45px;
+
+border-radius:30px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.calendar-month{
+
+font-size:34px;
+
+margin-bottom:35px;
+
+color:#b68a2e;
+
+}
+
+.calendar table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+.calendar th{
+
+padding:18px;
+
+font-size:22px;
+
+color:#9b7b3f;
+
+}
+
+.calendar td{
+
+padding:18px;
+
+font-size:24px;
+
+}
+
+.heart-circle{
+
+width:58px;
+
+height:58px;
+
+margin:auto;
+
+background:#d83b59;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:white;
+
+font-weight:bold;
+
+animation:heartBeat 2s infinite;
+
+box-shadow:0 8px 20px rgba(216,59,89,.4);
+
+}
+
+.calendar-text{
+
+margin-top:40px;
+
+font-size:26px;
+
+}
+
+/* ================================= */
+/* Animation */
+/* ================================= */
+
+@keyframes heartBeat{
 
 0%{
 
-transform:translateY(0px) rotate(0deg);
+transform:scale(1);
 
 }
 
 50%{
 
-transform:translateY(-12px) rotate(3deg);
+transform:scale(1.12);
 
 }
 
 100%{
 
-transform:translateY(0px) rotate(0deg);
+transform:scale(1);
 
 }
 
 }
 
-@keyframes floatFlower{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(12px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes floatFlower2{
+@keyframes ringsFloat{
 
 0%{
 
@@ -420,89 +693,226 @@ transform:translateY(0);
 
 }
 
-/* =======================
-Секции
-======================= */
+@keyframes gold{
 
-section{
+0%{
 
-padding:100px 25px;
+background-position:0%;
+
+}
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/* ================================= */
+/* PROGRAM */
+/* ================================= */
+
+.program{
+
+padding:120px 20px;
+
+background:white;
+
+text-align:center;
+
+}
+
+.program h2{
+
+font-size:54px;
+
+color:#6d5635;
+
+margin-bottom:15px;
+
+}
+
+.section-text{
+
+font-size:24px;
+
+color:#8b7764;
+
+margin-bottom:70px;
+
+}
+
+.timeline{
+
+max-width:950px;
+
+margin:auto;
 
 position:relative;
 
 }
 
-section:nth-child(even){
+.timeline::before{
 
-background:#fffdf9;
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+bottom:0;
+
+width:3px;
+
+background:#d9c08a;
+
+transform:translateX(-50%);
 
 }
 
-/* =======================
-Таймер
-======================= */
-
-.countdown{
+.timeline-item{
 
 display:flex;
 
-justify-content:center;
+align-items:center;
 
-gap:25px;
+justify-content:space-between;
 
-flex-wrap:wrap;
+margin-bottom:60px;
 
-margin-top:45px;
+position:relative;
 
 }
 
-.countdown div{
+.timeline-time{
 
-width:160px;
+width:120px;
 
-background:rgba(255,255,255,.9);
+font-size:34px;
 
-backdrop-filter:blur(12px);
+font-weight:bold;
+
+color:#b68a2e;
+
+}
+
+.timeline-icon{
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:32px;
+
+z-index:2;
+
+}
+
+.timeline-card{
+
+width:65%;
+
+background:white;
 
 padding:35px;
 
 border-radius:25px;
 
-box-shadow:
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 
-0 20px 50px rgba(0,0,0,.08);
+text-align:left;
 
-transition:.35s;
+transition:.4s;
 
 }
 
-.countdown div:hover{
+.timeline-card:hover{
 
 transform:translateY(-8px);
 
-}
-
-.countdown span{
-
-font-size:60px;
-
-font-weight:bold;
-
-color:#b79035;
-
-display:block;
-
-margin-bottom:10px;
+box-shadow:0 25px 45px rgba(0,0,0,.12);
 
 }
 
-/* =======================
-Календарь
-======================= */
+.timeline-card h3{
 
-.calendar-card{
+font-size:34px;
 
-max-width:760px;
+color:#b68a2e;
+
+margin-bottom:12px;
+
+}
+
+.timeline-card p{
+
+font-size:24px;
+
+line-height:1.7;
+
+}
+
+/* ================================= */
+/* LOCATION */
+/* ================================= */
+
+.location{
+
+padding:120px 20px;
+
+background:#faf8f5;
+
+text-align:center;
+
+}
+
+.location h2{
+
+font-size:54px;
+
+margin-bottom:20px;
+
+color:#6d5635;
+
+}
+
+.location-card{
+
+max-width:900px;
 
 margin:auto;
 
@@ -512,328 +922,352 @@ background:white;
 
 border-radius:30px;
 
-box-shadow:
-
-0 20px 50px rgba(0,0,0,.08);
-
-}
-
-.month{
-
-font-size:38px;
-
-text-align:center;
-
-margin-bottom:35px;
-
-color:#b79035;
-
-font-weight:600;
-
-}
-
-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-}
-
-th{
-
-padding:15px;
-
-font-size:22px;
-
-color:#888;
-
-font-weight:500;
-
-}
-
-td{
-
-padding:18px;
-
-font-size:24px;
-
-text-align:center;
-
-}
-
-.heart{
-
-background:linear-gradient(90deg,#d6b25c,#b79035);
-
-color:white;
-
-border-radius:50%;
-
-font-weight:bold;
-
-}
-
-/* =======================
-Программа
-======================= */
-
-.cards{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
-margin-top:50px;
-
-}
-
-.card{
-
-background:white;
-
-padding:40px;
-
-border-radius:30px;
-
-box-shadow:
-
-0 20px 50px rgba(0,0,0,.08);
-
-text-align:center;
-
-transition:.35s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-.card .icon{
-
-font-size:50px;
-
-margin-bottom:20px;
-
-}
-
-.card h3{
-
-font-size:34px;
-
-margin-bottom:15px;
-
-color:#b79035;
-
-}
-/* =======================
-Локация
-======================= */
-
-.location{
-
-text-align:center;
-
-}
-
-.location-card{
-
-max-width:750px;
-
-margin:50px auto;
-
-padding:50px;
-
-background:white;
-
-border-radius:35px;
-
-box-shadow:0 20px 50px rgba(0,0,0,.08);
+box-shadow:0 15px 40px rgba(0,0,0,.08);
 
 }
 
 .location-card h3{
 
-font-size:38px;
+font-size:42px;
+
+color:#b68a2e;
 
 margin-bottom:20px;
-
-color:#b79035;
 
 }
 
 .location-card p{
 
-font-size:24px;
+font-size:26px;
 
 margin-bottom:35px;
 
-line-height:1.8;
+}
+
+.map-frame{
+
+overflow:hidden;
+
+border-radius:25px;
+
+box-shadow:0 12px 35px rgba(0,0,0,.12);
+
+margin-bottom:35px;
 
 }
 
-/* =======================
-Пожелания
-======================= */
+.map-frame iframe{
+
+display:block;
+
+width:100%;
+
+border:none;
+
+}
+
+/* ================================= */
+/* WISH */
+/* ================================= */
 
 .wish{
+
+padding:120px 20px;
+
+background:white;
 
 text-align:center;
 
 }
 
-.wish-text{
+.wish-card{
 
 max-width:850px;
 
 margin:auto;
 
+padding:60px;
+
+border-radius:30px;
+
+background:#fff;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.wish-flower-left{
+
+position:absolute;
+
+left:-20px;
+
+top:-20px;
+
+width:180px;
+
+opacity:.15;
+
+}
+
+.wish-flower-right{
+
+position:absolute;
+
+right:-20px;
+
+bottom:-20px;
+
+width:180px;
+
+opacity:.15;
+
+transform:rotate(180deg);
+
+}
+
+.wish h2{
+
+font-size:52px;
+
+margin-bottom:35px;
+
+color:#6d5635;
+
+}
+
+.wish-text{
+
 font-size:28px;
 
 line-height:2;
 
-font-style:italic;
+position:relative;
 
-color:#666;
-
-}
-
-/* =======================
-RSVP
-======================= */
-
-.rsvp{
-
-text-align:center;
+z-index:2;
 
 }
 
-.rsvp-subtitle{
-
-margin-bottom:45px;
-
-font-size:24px;
-
-color:#777;
-
-}
-
-form{
-
-max-width:700px;
-
-margin:auto;
-
-display:flex;
-
-flex-direction:column;
-
-gap:22px;
-
-}
-
-input,
-textarea,
-select{
-
-width:100%;
-
-padding:18px 22px;
-
-border-radius:18px;
-
-border:1px solid #e5d7b5;
-
-background:white;
-
-font-size:20px;
-
-font-family:'Cormorant Garamond',serif;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-
-border-color:#b79035;
-
-box-shadow:0 0 15px rgba(183,144,53,.2);
-
-}
-
-textarea{
-
-min-height:160px;
-
-resize:none;
-
-}
-
-button{
-
-padding:18px;
-
-border:none;
-
-border-radius:50px;
-
-background:linear-gradient(90deg,#d6b25c,#b79035);
-
-color:white;
-
-font-size:22px;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:0 15px 35px rgba(183,144,53,.3);
-
-}
-
-button:hover{
-
-transform:translateY(-4px);
-
-}
-
-/* =======================
-Telegram
-======================= */
+/* ================================= */
+/* TELEGRAM */
+/* ================================= */
 
 .telegram{
 
+padding:120px 20px;
+
+background:#faf8f5;
+
 text-align:center;
+
+}
+
+.telegram-card{
+
+max-width:760px;
+
+margin:auto;
+
+padding:60px;
+
+border-radius:30px;
+
+background:white;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.telegram-icon{
+
+font-size:70px;
+
+margin-bottom:25px;
+
+animation:telegramJump 2s infinite;
+
+}
+
+.telegram h2{
+
+font-size:48px;
+
+color:#6d5635;
+
+margin-bottom:25px;
 
 }
 
 .telegram p{
 
-max-width:700px;
+font-size:27px;
 
-margin:25px auto;
+line-height:1.8;
+
+margin-bottom:40px;
 
 }
 
-/* =======================
-Спасибо
-======================= */
+.telegram-button{
+
+display:inline-block;
+
+padding:18px 50px;
+
+border-radius:60px;
+
+background:#2AABEE;
+
+color:white;
+
+font-size:22px;
+
+text-decoration:none;
+
+transition:.35s;
+
+}
+
+.telegram-button:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 18px 35px rgba(42,171,238,.35);
+
+}
+
+/* ================================= */
+
+@keyframes telegramJump{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+/* ================================= */
+/* RSVP */
+/* ================================= */
+
+.rsvp{
+
+padding:120px 20px;
+
+background:white;
+
+text-align:center;
+
+}
+
+.rsvp h2{
+
+font-size:52px;
+
+color:#6d5635;
+
+margin-bottom:20px;
+
+}
+
+.rsvp-card{
+
+max-width:700px;
+
+margin:auto;
+
+padding:45px;
+
+background:#fff;
+
+border-radius:30px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea{
+
+width:100%;
+
+padding:18px 22px;
+
+margin-bottom:20px;
+
+border:1px solid #e8dcc3;
+
+border-radius:18px;
+
+font-size:20px;
+
+font-family:inherit;
+
+outline:none;
+
+transition:.3s;
+
+background:#fffdf9;
+
+}
+
+.rsvp input:focus,
+.rsvp select:focus,
+.rsvp textarea:focus{
+
+border-color:#c8a24e;
+
+box-shadow:0 0 12px rgba(200,162,78,.2);
+
+}
+
+.rsvp textarea{
+
+height:140px;
+
+resize:none;
+
+}
+
+/* ================================= */
+/* THANKS */
+/* ================================= */
 
 .thanks{
 
+padding:120px 20px;
+
 text-align:center;
+
+background:#faf8f5;
+
+}
+
+.thanks h2{
+
+font-size:60px;
+
+margin-bottom:25px;
+
+color:#b68a2e;
 
 }
 
@@ -845,122 +1279,49 @@ line-height:2;
 
 }
 
-/* =======================
-Footer
-======================= */
+/* ================================= */
+/* FOOTER */
+/* ================================= */
 
 footer{
 
-padding:60px 20px;
-
-background:linear-gradient(90deg,#b79035,#d7b45f);
-
-color:white;
-
-text-align:center;
-
-font-size:24px;
-
-}
-
-/* =======================
-Popup
-======================= */
-
-.popup{
-
-position:fixed;
-
-left:0;
-
-top:0;
-
-width:100%;
-
-height:100%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:rgba(0,0,0,.55);
-
-opacity:0;
-
-visibility:hidden;
-
-transition:.4s;
-
-z-index:999999;
-
-}
-
-.popup.active{
-
-opacity:1;
-
-visibility:visible;
-
-}
-
-.popup-box{
-
-background:white;
-
 padding:50px;
 
-border-radius:30px;
-
-max-width:450px;
-
-width:90%;
+background:#fff;
 
 text-align:center;
 
-box-shadow:0 30px 70px rgba(0,0,0,.2);
+font-size:22px;
+
+color:#8c7a63;
 
 }
 
-.popup-box h2{
+/* ================================= */
+/* SCROLL ANIMATION */
+/* ================================= */
 
-margin-bottom:20px;
-
-}
-
-.popup-box button{
-
-margin-top:30px;
-
-width:100%;
-
-}
-/* =======================
-Появление секций
-======================= */
-
-.hidden{
+section{
 
 opacity:0;
 
-transform:translateY(80px);
+transform:translateY(60px);
 
-transition:1s ease;
+transition:1s;
 
 }
 
-.show{
+section.show{
 
 opacity:1;
 
-transform:translateY(0);
+transform:none;
 
 }
 
-/* =======================
-Кнопка наверх
-======================= */
+/* ================================= */
+/* TOP BUTTON */
+/* ================================= */
 
 #topButton{
 
@@ -970,35 +1331,31 @@ right:25px;
 
 bottom:25px;
 
-width:60px;
+width:55px;
 
-height:60px;
+height:55px;
 
 border-radius:50%;
 
-background:linear-gradient(90deg,#d6b25c,#b79035);
+background:linear-gradient(45deg,#b68a2e,#edd28a);
 
 color:white;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 font-size:28px;
 
 cursor:pointer;
 
-box-shadow:0 20px 40px rgba(183,144,53,.35);
-
 opacity:0;
-
-visibility:hidden;
 
 transition:.35s;
 
-z-index:9999;
+z-index:999;
 
 }
 
@@ -1006,207 +1363,101 @@ z-index:9999;
 
 opacity:1;
 
-visibility:visible;
+}
+
+/* ================================= */
+/* PETALS */
+/* ================================= */
+
+.petal{
+
+position:fixed;
+
+top:-40px;
+
+font-size:24px;
+
+pointer-events:none;
+
+animation:fall linear forwards;
+
+opacity:.8;
+
+z-index:3;
 
 }
 
-#topButton:hover{
-
-transform:translateY(-6px);
-
-}
-
-/* =======================
-Анимации
-======================= */
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(60px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-@keyframes pulse{
+@keyframes fall{
 
 0%{
 
-transform:scale(1);
+transform:translateY(-40px) rotate(0deg);
 
-}
-
-50%{
-
-transform:scale(1.05);
+opacity:1;
 
 }
 
 100%{
 
-transform:scale(1);
+transform:translateY(110vh) rotate(360deg);
+
+opacity:0;
 
 }
 
 }
 
-/* =======================
-Красивое выделение текста
-======================= */
-
-::selection{
-
-background:#d6b25c;
-
-color:white;
-
-}
-
-/* =======================
-Полоса прокрутки
-======================= */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#faf8f5;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#c9a247;
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#b79035;
-
-}
-
-/* =======================
-Адаптация
-======================= */
-
-@media(max-width:992px){
-
-h1{
-
-font-size:70px;
-
-}
-
-h2{
-
-font-size:38px;
-
-}
-
-.flowers-top{
-
-width:260px;
-
-}
-
-.flowers-bottom{
-
-width:280px;
-
-}
-
-.rings{
-
-width:110px;
-
-right:20px;
-
-top:30px;
-
-}
-
-.countdown div{
-
-width:140px;
-
-}
-
-.calendar-card{
-
-padding:25px;
-
-}
-
-}
+/* ================================= */
+/* MOBILE */
+/* ================================= */
 
 @media(max-width:768px){
 
 .hero{
 
-padding:30px;
+padding:80px 20px;
 
 }
 
-h1{
+.hero-title{
+
+font-size:68px;
+
+}
+
+.hero-title span{
+
+font-size:48px;
+
+}
+
+.hero-text{
+
+font-size:22px;
+
+}
+
+.hero-date{
+
+font-size:28px;
+
+}
+
+.welcome-title{
 
 font-size:56px;
 
 }
 
-.subtitle{
+.section-title h2,
+.program h2,
+.location h2,
+.calendar h2,
+.telegram h2,
+.wish h2,
+.rsvp h2{
 
-font-size:18px;
-
-letter-spacing:3px;
-
-}
-
-.date,
-
-.welcome-date{
-
-font-size:24px;
-
-}
-
-.invite{
-
-font-size:20px;
+font-size:38px;
 
 }
 
@@ -1216,109 +1467,85 @@ gap:15px;
 
 }
 
-.countdown div{
+.time-box{
 
-width:120px;
+width:140px;
+
+padding:25px 15px;
+
+}
+
+.time-box span{
+
+font-size:46px;
+
+}
+
+.timeline::before{
+
+display:none;
+
+}
+
+.timeline-item{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.timeline-card{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.timeline-time{
+
+width:auto;
+
+}
+
+.calendar-card{
 
 padding:20px;
 
 }
 
-.countdown span{
+.calendar td,
+.calendar th{
 
-font-size:42px;
-
-}
-
-.cards{
-
-grid-template-columns:1fr;
-
-}
-
-.location-card{
-
-padding:30px;
-
-}
-
-.location-card h3{
-
-font-size:30px;
-
-}
-
-.location-card p{
-
-font-size:20px;
-
-}
-
-.wish-text{
-
-font-size:22px;
-
-}
-
-.popup-box{
-
-padding:30px;
-
-}
-
-}
-
-@media(max-width:480px){
-
-h1{
-
-font-size:48px;
-
-}
-
-h2{
-
-font-size:32px;
-
-}
-
-.button{
-
-width:100%;
-
-}
-
-#openInvitation{
-
-width:100%;
-
-}
-
-.countdown div{
-
-width:45%;
-
-}
-
-input,
-
-textarea,
-
-select{
+padding:8px;
 
 font-size:18px;
 
 }
 
-button{
+.telegram-card,
+.location-card,
+.rsvp-card,
+.wish-card{
 
-font-size:20px;
+padding:30px 20px;
+
+}
+
+.telegram p,
+.wish-text,
+.location-card p{
+
+font-size:22px;
 
 }
 
 footer{
 
-font-size:20px;
+font-size:18px;
+
+padding:30px;
 
 }
 
