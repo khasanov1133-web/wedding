@@ -1,18 +1,18 @@
-// =======================================
+// =====================================
 // Wedding Invitation
 // Ислам & Гулбону
-// =======================================
+// =====================================
 
-// ==========================
+// =====================
 // Welcome Screen
-// ==========================
+// =====================
 
 const welcome = document.getElementById("welcome");
-const openInvitation = document.getElementById("openInvitation");
+const openButton = document.getElementById("openInvitation");
 
-if (openInvitation) {
+if (openButton) {
 
-openInvitation.addEventListener("click", () => {
+openButton.addEventListener("click", () => {
 
 welcome.classList.add("hideWelcome");
 
@@ -20,55 +20,55 @@ setTimeout(() => {
 
 welcome.style.display = "none";
 
-},1000);
+},900);
 
 });
 
 }
 
-// ==========================
+// =====================
 // Countdown
-// ==========================
+// =====================
 
 const weddingDate = new Date("2026-08-15T12:30:00").getTime();
 
-function updateCountdown(){
+function updateTimer(){
 
 const now = new Date().getTime();
 
 const distance = weddingDate - now;
 
-const days = Math.floor(distance / (1000*60*60*24));
+const days = Math.floor(distance/(1000*60*60*24));
 
-const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+const minutes = Math.floor((distance%(1000*60*60))/60000);
 
-const seconds = Math.floor((distance % (1000*60)) / 1000);
+const seconds = Math.floor((distance%(1000*60))/1000);
 
-document.getElementById("days").innerText =
-distance > 0 ? days : 0;
+document.getElementById("days").textContent =
+distance>0 ? days : 0;
 
-document.getElementById("hours").innerText =
-distance > 0 ? hours : 0;
+document.getElementById("hours").textContent =
+distance>0 ? hours : 0;
 
-document.getElementById("minutes").innerText =
-distance > 0 ? minutes : 0;
+document.getElementById("minutes").textContent =
+distance>0 ? minutes : 0;
 
-document.getElementById("seconds").innerText =
-distance > 0 ? seconds : 0;
+document.getElementById("seconds").textContent =
+distance>0 ? seconds : 0;
 
 }
 
-updateCountdown();
+updateTimer();
 
-setInterval(updateCountdown,1000);
+setInterval(updateTimer,1000);
 
-// ==========================
+// =====================
 // Scroll Animation
-// ==========================
+// =====================
 
-const observer = new IntersectionObserver(entries=>{
+const observer = new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
@@ -80,35 +80,34 @@ entry.target.classList.add("show");
 
 });
 
-},{threshold:0.15});
+},{
+threshold:0.15
+});
 
 document.querySelectorAll("section").forEach(section=>{
 
 observer.observe(section);
 
 });
-// ==========================
-// Petals
-// ==========================
+// =====================
+// Falling Petals
+// =====================
 
 function createPetal(){
 
 const petal=document.createElement("div");
 
-petal.className="petal";
+petal.classList.add("petal");
 
-petal.innerHTML="🌸";
+petal.innerHTML=Math.random()>0.5?"🌸":"🌹";
 
 petal.style.left=Math.random()*100+"vw";
 
-petal.style.animationDuration=
-5+Math.random()*6+"s";
+petal.style.fontSize=(18+Math.random()*18)+"px";
 
-petal.style.fontSize=
-18+Math.random()*18+"px";
+petal.style.animationDuration=(6+Math.random()*6)+"s";
 
-petal.style.opacity=
-0.5+Math.random()*0.5;
+petal.style.opacity=0.5+Math.random()*0.5;
 
 document.body.appendChild(petal);
 
@@ -116,15 +115,15 @@ setTimeout(()=>{
 
 petal.remove();
 
-},11000);
+},12000);
 
 }
 
-setInterval(createPetal,350);
+setInterval(createPetal,450);
 
-// ==========================
+// =====================
 // Top Button
-// ==========================
+// =====================
 
 const topButton=document.createElement("div");
 
@@ -136,7 +135,7 @@ document.body.appendChild(topButton);
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>500){
+if(window.scrollY>400){
 
 topButton.classList.add("show");
 
@@ -160,71 +159,49 @@ behavior:"smooth"
 
 };
 
-// ==========================
-// RSVP
-// ==========================
-
-const form=document.getElementById("rsvpForm");
-
-if(form){
-
-form.addEventListener("submit",()=>{
-
-const button=form.querySelector("button");
-
-button.innerHTML="Спасибо ❤️";
-
-button.disabled=true;
-
-});
-
-}
-
-// ==========================
-// Rings Animation
-// ==========================
-
-const rings=document.querySelector(".hero-ring img");
-
-if(rings){
-
-setInterval(()=>{
-
-rings.style.transform="scale(1.06)";
-
-setTimeout(()=>{
-
-rings.style.transform="scale(1)";
-
-},600);
-
-},3500);
-
-}
-
-// ==========================
-// Gold Button Hover
-// ==========================
+// =====================
+// Hero Button Animation
+// =====================
 
 document.querySelectorAll(".gold-button").forEach(button=>{
 
 button.addEventListener("mouseenter",()=>{
 
-button.style.transform="translateY(-5px) scale(1.03)";
+button.style.transform="translateY(-6px) scale(1.03)";
 
 });
 
 button.addEventListener("mouseleave",()=>{
 
-button.style.transform="";
+button.style.transform="translateY(0) scale(1)";
 
 });
 
 });
 
-// ==========================
-// Smooth Fade
-// ==========================
+// =====================
+// RSVP Success
+// =====================
+
+const form=document.querySelector(".rsvp form");
+
+if(form){
+
+form.addEventListener("submit",()=>{
+
+const btn=form.querySelector("button");
+
+btn.innerHTML="Спасибо ❤️";
+
+btn.disabled=true;
+
+});
+
+}
+
+// =====================
+// Fade Body
+// =====================
 
 window.addEventListener("load",()=>{
 
@@ -232,12 +209,8 @@ document.body.style.opacity="1";
 
 });
 
-// ==========================
+// =====================
 // Console
-// ==========================
+// =====================
 
-console.log(
-
-"❤️ Wedding Invitation by ChatGPT"
-
-);
+console.log("💍 Wedding Invitation Loaded");
