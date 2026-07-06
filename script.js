@@ -1,141 +1,243 @@
+// =======================================
+// Wedding Invitation
+// Ислам & Гулбону
+// =======================================
+
 // ==========================
-// Wedding Invitation Script
+// Welcome Screen
 // ==========================
 
-// Экран приветствия
 const welcome = document.getElementById("welcome");
 const openInvitation = document.getElementById("openInvitation");
 
-if (welcome && openInvitation) {
-    openInvitation.addEventListener("click", () => {
-        welcome.classList.add("hideWelcome");
+if (openInvitation) {
 
-        setTimeout(() => {
-            welcome.style.display = "none";
-        }, 700);
-    });
+openInvitation.addEventListener("click", () => {
+
+welcome.classList.add("hideWelcome");
+
+setTimeout(() => {
+
+welcome.style.display = "none";
+
+},1000);
+
+});
+
 }
 
-// Таймер
+// ==========================
+// Countdown
+// ==========================
+
 const weddingDate = new Date("2026-08-15T12:30:00").getTime();
 
-function countdown() {
+function updateCountdown(){
 
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+const now = new Date().getTime();
 
-    if (distance <= 0) return;
+const distance = weddingDate - now;
 
-    document.getElementById("days").textContent =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+const days = Math.floor(distance / (1000*60*60*24));
 
-    document.getElementById("hours").textContent =
-        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
 
-    document.getElementById("minutes").textContent =
-        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
 
-    document.getElementById("seconds").textContent =
-        Math.floor((distance % (1000 * 60)) / 1000);
+const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+document.getElementById("days").innerText =
+distance > 0 ? days : 0;
+
+document.getElementById("hours").innerText =
+distance > 0 ? hours : 0;
+
+document.getElementById("minutes").innerText =
+distance > 0 ? minutes : 0;
+
+document.getElementById("seconds").innerText =
+distance > 0 ? seconds : 0;
+
 }
 
-countdown();
-setInterval(countdown, 1000);
+updateCountdown();
 
-// Анимация появления секций
-const sections = document.querySelectorAll("section");
+setInterval(updateCountdown,1000);
 
-const observer = new IntersectionObserver((entries) => {
+// ==========================
+// Scroll Animation
+// ==========================
 
-    entries.forEach(entry => {
+const observer = new IntersectionObserver(entries=>{
 
-        if (entry.isIntersecting) {
+entries.forEach(entry=>{
 
-            entry.target.classList.add("show");
+if(entry.isIntersecting){
 
-        }
+entry.target.classList.add("show");
 
-    });
-
-}, {
-    threshold: 0.15
-});
-
-sections.forEach(section => {
-
-    section.classList.add("hidden");
-
-    observer.observe(section);
+}
 
 });
 
-// Кнопка наверх
-const topButton = document.createElement("div");
+},{threshold:0.15});
 
-topButton.id = "topButton";
+document.querySelectorAll("section").forEach(section=>{
 
-topButton.innerHTML = "↑";
+observer.observe(section);
+
+});
+// ==========================
+// Petals
+// ==========================
+
+function createPetal(){
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌸";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=
+5+Math.random()*6+"s";
+
+petal.style.fontSize=
+18+Math.random()*18+"px";
+
+petal.style.opacity=
+0.5+Math.random()*0.5;
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},11000);
+
+}
+
+setInterval(createPetal,350);
+
+// ==========================
+// Top Button
+// ==========================
+
+const topButton=document.createElement("div");
+
+topButton.id="topButton";
+
+topButton.innerHTML="↑";
 
 document.body.appendChild(topButton);
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if (window.scrollY > 400) {
+if(window.scrollY>500){
 
-        topButton.classList.add("show");
+topButton.classList.add("show");
 
-    } else {
+}else{
 
-        topButton.classList.remove("show");
+topButton.classList.remove("show");
 
-    }
+}
 
 });
 
-topButton.onclick = () => {
+topButton.onclick=()=>{
 
-    window.scrollTo({
+window.scrollTo({
 
-        top: 0,
+top:0,
 
-        behavior: "smooth"
+behavior:"smooth"
 
-    });
+});
 
 };
 
-// ======================
+// ==========================
 // RSVP
-// ======================
+// ==========================
 
-const form = document.getElementById("rsvpForm");
+const form=document.getElementById("rsvpForm");
 
-const popup = document.getElementById("popup");
+if(form){
 
-const closePopup = document.getElementById("closePopup");
+form.addEventListener("submit",()=>{
 
-if (form) {
+const button=form.querySelector("button");
 
-    form.addEventListener("submit", function () {
+button.innerHTML="Спасибо ❤️";
 
-        popup.classList.add("active");
+button.disabled=true;
 
-        setTimeout(() => {
-
-            form.submit();
-
-        }, 1200);
-
-    });
+});
 
 }
 
-if (closePopup) {
+// ==========================
+// Rings Animation
+// ==========================
 
-    closePopup.addEventListener("click", () => {
+const rings=document.querySelector(".hero-ring img");
 
-        popup.classList.remove("active");
+if(rings){
 
-    });
+setInterval(()=>{
+
+rings.style.transform="scale(1.06)";
+
+setTimeout(()=>{
+
+rings.style.transform="scale(1)";
+
+},600);
+
+},3500);
 
 }
+
+// ==========================
+// Gold Button Hover
+// ==========================
+
+document.querySelectorAll(".gold-button").forEach(button=>{
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.transform="translateY(-5px) scale(1.03)";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.transform="";
+
+});
+
+});
+
+// ==========================
+// Smooth Fade
+// ==========================
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="1";
+
+});
+
+// ==========================
+// Console
+// ==========================
+
+console.log(
+
+"❤️ Wedding Invitation by ChatGPT"
+
+);
