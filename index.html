@@ -4,49 +4,28 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>Ислам & Гулбону | 15 августа 2026</title>
 
-<title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-Ислам & Гулбону | 15 августа 2026
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
-</title>
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-<link
-rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<!-- ================================= -->
-<!-- Экран открытия -->
-<!-- ================================= -->
+<!-- =============================== -->
+<!-- Welcome -->
+<!-- =============================== -->
 
 <div id="welcome">
 
-<div class="welcome-card">
-
-<div class="welcome-rings">
-
-💍
-
-</div>
+<div class="welcome-box">
 
 <p class="welcome-subtitle">
 
@@ -70,7 +49,7 @@ href="style.css">
 
 </p>
 
-<button id="openInvitation">
+<button id="openInvitation" class="gold-button">
 
 Открыть приглашение
 
@@ -80,27 +59,27 @@ href="style.css">
 
 </div>
 
-<!-- ================================= -->
+<!-- =============================== -->
 <!-- Hero -->
-<!-- ================================= -->
+<!-- =============================== -->
 
 <header class="hero">
+
+<video autoplay muted loop playsinline class="hero-video">
+
+<source src="wedding.mp4" type="video/mp4">
+
+</video>
 
 <div class="hero-overlay"></div>
 
 <div class="hero-content">
 
-<div class="hero-ring">
+<h3>
 
-💍
+Свадебное приглашение
 
-</div>
-
-<p class="hero-subtitle">
-
-Wedding Day
-
-</p>
+</h3>
 
 <h1 class="hero-title">
 
@@ -124,19 +103,15 @@ Wedding Day
 
 <br><br>
 
-С огромной радостью приглашаем вас
-разделить вместе с нами
-самый счастливый день нашей жизни.
+С огромной радостью приглашаем вас разделить с нами самый счастливый день нашей жизни.
 
 <br><br>
 
-Будем счастливы видеть вас рядом ❤️
+Будем счастливы видеть вас рядом!
 
 </p>
 
-<a
-href="#timer"
-class="gold-button">
+<a href="#timer" class="gold-button">
 
 Открыть приглашение
 
@@ -146,13 +121,11 @@ class="gold-button">
 
 </header>
 
-<!-- ================================= -->
-<!-- Таймер -->
-<!-- ================================= -->
+<!-- =============================== -->
+<!-- Timer -->
+<!-- =============================== -->
 
-<section
-id="timer"
-class="timer-section">
+<section id="timer" class="timer-section">
 
 <div class="section-title">
 
@@ -168,72 +141,39 @@ class="timer-section">
 
 <div class="time-box">
 
-<span id="days">
+<span id="days">0</span>
 
-0
-
-</span>
-
-<p>
-
-Дней
-
-</p>
+<p>Дней</p>
 
 </div>
 
 <div class="time-box">
 
-<span id="hours">
+<span id="hours">0</span>
 
-0
-
-</span>
-
-<p>
-
-Часов
-
-</p>
+<p>Часов</p>
 
 </div>
 
 <div class="time-box">
 
-<span id="minutes">
+<span id="minutes">0</span>
 
-0
-
-</span>
-
-<p>
-
-Минут
-
-</p>
+<p>Минут</p>
 
 </div>
 
 <div class="time-box">
 
-<span id="seconds">
+<span id="seconds">0</span>
 
-0
-
-</span>
-
-<p>
-
-Секунд
-
-</p>
+<p>Секунд</p>
 
 </div>
 
 </div>
 
 </section>
-
 <!-- ================================= -->
 <!-- Календарь -->
 <!-- ================================= -->
@@ -248,11 +188,11 @@ class="timer-section">
 
 <div class="calendar-card">
 
-<h3 class="calendar-month">
+<div class="calendar-month">
 
 Август 2026
 
-</h3>
+</div>
 
 <table>
 
@@ -275,9 +215,7 @@ class="timer-section">
 <td></td>
 <td></td>
 <td></td>
-
 <td>1</td>
-
 <td>2</td>
 
 </tr>
@@ -304,7 +242,7 @@ class="timer-section">
 
 <td>
 
-<div class="heart-circle">
+<div class="heart-day">
 
 15
 
@@ -342,17 +280,12 @@ class="timer-section">
 
 </table>
 
-<p class="calendar-text">
-
-❤️ Мы скажем друг другу «Да»
-
-</p>
-
 </div>
 
 </section>
+
 <!-- ================================= -->
-<!-- Программа дня -->
+<!-- Программа -->
 <!-- ================================= -->
 
 <section class="program">
@@ -363,146 +296,99 @@ class="timer-section">
 
 </h2>
 
-<p class="section-text">
+<div class="program-grid">
 
-Мы будем счастливы провести этот день вместе с вами
+<div class="program-card">
 
-</p>
-
-<div class="timeline">
-
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-12:30
-
-</div>
-
-<div class="timeline-icon">
+<div class="program-icon">
 
 💍
 
 </div>
 
-<div class="timeline-card">
-
 <h3>
 
-Регистрация брака
+12:30
 
 </h3>
 
 <p>
 
-Торжественная регистрация нашего союза.
+Регистрация брака
 
 </p>
 
 </div>
 
-</div>
+<div class="program-card">
 
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-17:30
-
-</div>
-
-<div class="timeline-icon">
+<div class="program-icon">
 
 🥂
 
 </div>
 
-<div class="timeline-card">
-
 <h3>
 
-Сбор гостей
+17:30
 
 </h3>
 
 <p>
 
-Встречаем гостей, фотографии и приветственный фуршет.
+Сбор гостей
 
 </p>
 
 </div>
 
-</div>
+<div class="program-card">
 
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-18:00
-
-</div>
-
-<div class="timeline-icon">
+<div class="program-icon">
 
 🎉
 
 </div>
 
-<div class="timeline-card">
-
 <h3>
 
-Начало торжества
+18:00
 
 </h3>
 
 <p>
 
-Банкет, поздравления, музыка, танцы и праздничная атмосфера.
+Начало торжества
 
 </p>
 
 </div>
 
-</div>
+<div class="program-card">
 
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-22:00
-
-</div>
-
-<div class="timeline-icon">
+<div class="program-icon">
 
 🌙
 
 </div>
 
-<div class="timeline-card">
-
 <h3>
 
-Завершение вечера
+22:00
 
 </h3>
 
 <p>
 
-Спасибо, что разделили этот счастливый день вместе с нами ❤️
+Завершение вечера
 
 </p>
-
-</div>
 
 </div>
 
 </div>
 
 </section>
-
 <!-- ================================= -->
 <!-- Локация -->
 <!-- ================================= -->
@@ -515,9 +401,9 @@ class="timer-section">
 
 </h2>
 
-<p class="section-text">
+<p class="section-subtitle">
 
-Ждём вас по адресу
+Мы будем счастливы видеть вас именно здесь ❤️
 
 </p>
 
@@ -525,21 +411,21 @@ class="timer-section">
 
 <h3>
 
-Ресторан «Рай»
+🏛 Ресторан «Рай»
 
 </h3>
 
 <p>
 
-г. Сургут
+📍 г. Сургут
 
 </p>
 
-<div class="map-frame">
+<div class="map">
 
 <iframe
 
-src="https://widgets.2gis.com/widget?type=firm&id=70000001022288697"
+src="https://yandex.ru/map-widget/v1/?ll=73.239768%2C61.271586&z=17"
 
 width="100%"
 
@@ -547,7 +433,7 @@ height="350"
 
 frameborder="0"
 
-loading="lazy">
+allowfullscreen>
 
 </iframe>
 
@@ -555,13 +441,13 @@ loading="lazy">
 
 <a
 
-href="https://2gis.ru/surgut/branches/70000001022288696/firm/70000001022288697/73.239768%2C61.271586?m=73.239765%2C61.271577%2F18"
+class="gold-button"
 
 target="_blank"
 
-class="gold-button">
+href="https://2gis.ru/surgut/branches/70000001022288696/firm/70000001022288697">
 
-📍 Построить маршрут
+Построить маршрут
 
 </a>
 
@@ -583,21 +469,19 @@ class="gold-button">
 
 </h2>
 
-<p class="wish-text">
+<p>
 
-Для нас самым главным подарком
-будет ваше присутствие.
+Самый ценный подарок для нас —
 
-<br><br>
+это ваше присутствие,
 
-Мы будем счастливы провести
-этот день вместе с вами.
+улыбки,
 
-<br><br>
+теплые слова
 
-Если вы захотите сделать подарок,
-то будем благодарны за вклад
-в нашу молодую семью ❤️
+и счастливые воспоминания,
+
+которые останутся с нами на всю жизнь.
 
 </p>
 
@@ -627,9 +511,13 @@ class="gold-button">
 
 <p>
 
-После свадьбы будем рады,
+После свадьбы мы будем рады,
+
 если вы поделитесь фотографиями
-и видео нашего праздника.
+
+и видео нашего праздника
+
+в нашем Telegram-чате.
 
 </p>
 
@@ -660,7 +548,7 @@ class="telegram-button">
 
 </h2>
 
-<p class="section-text">
+<p class="section-subtitle">
 
 Пожалуйста, подтвердите своё присутствие
 до <strong>1 августа 2026 года</strong>
@@ -675,11 +563,6 @@ method="POST">
 
 <input
 type="hidden"
-name="_subject"
-value="Новое подтверждение на свадьбу">
-
-<input
-type="hidden"
 name="_captcha"
 value="false">
 
@@ -690,25 +573,35 @@ value="table">
 
 <input
 type="hidden"
+name="_subject"
+value="Новое подтверждение на свадьбу">
+
+<input
+type="hidden"
 name="_next"
 value="https://khasanov1133-web.github.io/wedding/">
 
 <input
+
 type="text"
+
 name="Имя"
+
 placeholder="Ваше имя"
+
 required>
 
 <select
+
 name="Ответ">
 
-<option value="Буду присутствовать">
+<option>
 
 ✅ Буду присутствовать
 
 </option>
 
-<option value="Не смогу присутствовать">
+<option>
 
 ❌ К сожалению, не смогу
 
@@ -717,15 +610,22 @@ name="Ответ">
 </select>
 
 <input
+
 type="number"
+
 name="Количество гостей"
+
 placeholder="Количество гостей"
+
 min="1"
+
 max="10">
 
 <textarea
+
 name="Комментарий"
-placeholder="Ваши пожелания (необязательно)"></textarea>
+
+placeholder="Пожелания (необязательно)"></textarea>
 
 <button
 type="submit"
@@ -742,10 +642,12 @@ class="gold-button">
 </section>
 
 <!-- ================================= -->
-<!-- Благодарность -->
+<!-- Спасибо -->
 <!-- ================================= -->
 
 <section class="thanks">
+
+<div class="thanks-box">
 
 <h2>
 
@@ -755,7 +657,7 @@ class="gold-button">
 
 <p>
 
-Мы с нетерпением ждём встречи с вами!
+С нетерпением ждём встречи с вами!
 
 <br><br>
 
@@ -770,6 +672,8 @@ class="gold-button">
 </strong>
 
 </p>
+
+</div>
 
 </section>
 
@@ -794,4 +698,5 @@ class="gold-button">
 <script src="script.js"></script>
 
 </body>
+
 </html>
