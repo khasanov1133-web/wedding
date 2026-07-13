@@ -1,18 +1,19 @@
-// ======================================
+// =====================================
 // Wedding Invitation
 // Ислам & Гулбону
-// ======================================
+// =====================================
 
-// -------------------------
-// Welcome Screen
-// -------------------------
+// ---------------------
+// Welcome
+// ---------------------
 
-const welcome = document.getElementById("welcome");
-const openInvitation = document.getElementById("openInvitation");
+const welcome=document.getElementById("welcome");
 
-if(openInvitation){
+const openBtn=document.getElementById("openInvitation");
 
-openInvitation.addEventListener("click",()=>{
+if(openBtn){
+
+openBtn.onclick=()=>{
 
 welcome.classList.add("hideWelcome");
 
@@ -20,30 +21,25 @@ setTimeout(()=>{
 
 welcome.style.display="none";
 
-},900);
-
-});
+},800);
 
 }
 
-// -------------------------
+}
+
+// ---------------------
 // Countdown
-// -------------------------
+// ---------------------
 
-const weddingDate = new Date("2026-08-15T18:00:00").getTime();
+const weddingDate=new Date("2026-08-15T18:00:00").getTime();
 
-function updateCountdown(){
+function countdown(){
 
-const now = new Date().getTime();
+const now=new Date().getTime();
 
-const distance = weddingDate - now;
+const distance=weddingDate-now;
 
-if(distance<=0){
-
-document.getElementById("days").textContent=0;
-document.getElementById("hours").textContent=0;
-document.getElementById("minutes").textContent=0;
-document.getElementById("seconds").textContent=0;
+if(distance<0){
 
 return;
 
@@ -57,20 +53,23 @@ const minutes=Math.floor((distance%(1000*60*60))/60000);
 
 const seconds=Math.floor((distance%(1000*60))/1000);
 
-document.getElementById("days").textContent=days;
-document.getElementById("hours").textContent=hours;
-document.getElementById("minutes").textContent=minutes;
-document.getElementById("seconds").textContent=seconds;
+document.getElementById("days").innerHTML=days;
+
+document.getElementById("hours").innerHTML=hours;
+
+document.getElementById("minutes").innerHTML=minutes;
+
+document.getElementById("seconds").innerHTML=seconds;
 
 }
 
-updateCountdown();
+countdown();
 
-setInterval(updateCountdown,1000);
+setInterval(countdown,1000);
 
-// -------------------------
+// ---------------------
 // Scroll Animation
-// -------------------------
+// ---------------------
 
 const observer=new IntersectionObserver(entries=>{
 
@@ -84,16 +83,16 @@ entry.target.classList.add("show");
 
 });
 
-},{threshold:0.15});
+},{threshold:.15});
 
 document.querySelectorAll("section").forEach(section=>{
 
 observer.observe(section);
 
 });
-// -------------------------
-// Falling Petals
-// -------------------------
+// =====================================
+// Falling Rose Petals
+// =====================================
 
 function createPetal(){
 
@@ -101,17 +100,17 @@ const petal=document.createElement("div");
 
 petal.className="petal";
 
-const flowers=["🌸","🌹","🌺"];
+const petals=["🌹","🌸","🌺"];
 
-petal.innerHTML=flowers[Math.floor(Math.random()*flowers.length)];
+petal.innerHTML=petals[Math.floor(Math.random()*petals.length)];
 
 petal.style.left=Math.random()*100+"vw";
 
 petal.style.fontSize=(18+Math.random()*18)+"px";
 
-petal.style.animationDuration=(7+Math.random()*6)+"s";
+petal.style.animationDuration=(8+Math.random()*6)+"s";
 
-petal.style.opacity=Math.random()*0.5+0.5;
+petal.style.opacity=Math.random()*.5+.5;
 
 document.body.appendChild(petal);
 
@@ -119,15 +118,15 @@ setTimeout(()=>{
 
 petal.remove();
 
-},13000);
+},14000);
 
 }
 
 setInterval(createPetal,350);
 
-// -------------------------
-// Top Button
-// -------------------------
+// =====================================
+// Scroll To Top
+// =====================================
 
 const topButton=document.createElement("div");
 
@@ -139,7 +138,7 @@ document.body.appendChild(topButton);
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>400){
+if(window.scrollY>500){
 
 topButton.classList.add("show");
 
@@ -151,7 +150,7 @@ topButton.classList.remove("show");
 
 });
 
-topButton.addEventListener("click",()=>{
+topButton.onclick=()=>{
 
 window.scrollTo({
 
@@ -161,17 +160,33 @@ behavior:"smooth"
 
 });
 
+};
+
+// =====================================
+// Video Autoplay
+// =====================================
+
+const video=document.querySelector(".hero-video");
+
+if(video){
+
+video.play().catch(()=>{
+
+console.log("Автовоспроизведение запрещено.");
+
 });
 
-// -------------------------
-// Buttons Animation
-// -------------------------
+}
 
-document.querySelectorAll(".gold-button,.telegram-button").forEach(button=>{
+// =====================================
+// Button Hover Animation
+// =====================================
+
+document.querySelectorAll(".gold-btn,.telegram-btn").forEach(button=>{
 
 button.addEventListener("mouseenter",()=>{
 
-button.style.transform="translateY(-6px) scale(1.03)";
+button.style.transform="translateY(-5px) scale(1.03)";
 
 });
 
@@ -183,9 +198,9 @@ button.style.transform="translateY(0) scale(1)";
 
 });
 
-// -------------------------
-// Page Fade
-// -------------------------
+// =====================================
+// Fade In Page
+// =====================================
 
 window.addEventListener("load",()=>{
 
@@ -193,25 +208,9 @@ document.body.style.opacity="1";
 
 });
 
-// -------------------------
-// Video autoplay fix
-// -------------------------
-
-const heroVideo=document.querySelector(".hero-video");
-
-if(heroVideo){
-
-heroVideo.play().catch(()=>{
-
-console.log("Автовоспроизведение запрещено браузером.");
-
-});
-
-}
-
-// -------------------------
-// RSVP
-// -------------------------
+// =====================================
+// RSVP Animation
+// =====================================
 
 const form=document.querySelector(".rsvp form");
 
@@ -219,18 +218,18 @@ if(form){
 
 form.addEventListener("submit",()=>{
 
-const button=form.querySelector("button");
+const btn=form.querySelector("button");
 
-button.disabled=true;
+btn.innerHTML="Спасибо ❤️";
 
-button.innerHTML="Спасибо ❤️";
+btn.disabled=true;
 
 });
 
 }
 
-// -------------------------
+// =====================================
 // Console
-// -------------------------
+// =====================================
 
-console.log("💍 Wedding Invitation loaded successfully");
+console.log("💍 Wedding Invitation Loaded");
