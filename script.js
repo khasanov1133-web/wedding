@@ -30,7 +30,7 @@ welcome.style.display = "none";
 // Countdown
 // =====================
 
-const weddingDate = new Date("2026, 9, 5, 18, 0, 0).getTime();
+const weddingDate = new Date(2026, 9, 5, 18, 0, 0).getTime();
 
 function updateTimer(){
 
