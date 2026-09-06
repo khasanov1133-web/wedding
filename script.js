@@ -32,37 +32,49 @@ welcome.style.display = "none";
 
 const weddingDate = new Date(2026, 9, 5, 18, 0, 0).getTime();
 
-function updateTimer(){
+function updateTimer() {
 
-const now = new Date().getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-const distance = weddingDate - now;
+    if (distance <= 0) {
 
-const days = Math.floor(distance/(1000*60*60*24));
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
 
-const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+        return;
+    }
 
-const minutes = Math.floor((distance%(1000*60*60))/60000);
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
 
-const seconds = Math.floor((distance%(1000*60))/1000);
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
 
-document.getElementById("days").textContent =
-distance>0 ? days : 0;
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
 
-document.getElementById("hours").textContent =
-distance>0 ? hours : 0;
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+    );
 
-document.getElementById("minutes").textContent =
-distance>0 ? minutes : 0;
-
-document.getElementById("seconds").textContent =
-distance>0 ? seconds : 0;
-
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
 }
 
 updateTimer();
 
-setInterval(updateTimer,1000);
+setInterval(updateTimer, 1000);
 
 // =====================
 // Scroll Animation
