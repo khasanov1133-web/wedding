@@ -30,13 +30,16 @@ welcome.style.display = "none";
 // Countdown
 // =====================
 
-const weddingDate = new Date(2026, 9, 5, 18, 0, 0).getTime();
+// Свадьба: 5 октября 2026 года, 18:00
+const weddingDate = new Date(2026, 9, 5, 18, 0, 0);
 
 function updateTimer() {
 
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const now = new Date();
 
+    let distance = weddingDate.getTime() - now.getTime();
+
+    // Если дата уже наступила
     if (distance <= 0) {
 
         document.getElementById("days").textContent = "0";
@@ -47,35 +50,44 @@ function updateTimer() {
         return;
     }
 
+    // Дни
     const days = Math.floor(
         distance / (1000 * 60 * 60 * 24)
     );
 
+    // Часы после полных дней
     const hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) /
         (1000 * 60 * 60)
     );
 
+    // Минуты
     const minutes = Math.floor(
         (distance % (1000 * 60 * 60)) /
         (1000 * 60)
     );
 
+    // Секунды
     const seconds = Math.floor(
         (distance % (1000 * 60)) /
         1000
     );
 
     document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
 }
 
 updateTimer();
 
 setInterval(updateTimer, 1000);
-
 // =====================
 // Scroll Animation
 // =====================
